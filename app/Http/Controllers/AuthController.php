@@ -9,7 +9,7 @@ use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
 {
-    
+    // user register
     public function register(Request $request)
     {
         $request->validate([
@@ -32,7 +32,7 @@ class AuthController extends Controller
         ], 201);
     }
 
-    
+     // user login
     public function login(Request $request)
     {
         $request->validate([
@@ -56,9 +56,7 @@ class AuthController extends Controller
         ]);
     }
 
-    /**
-     * جلب بيانات المستخدم المصادق عليه
-     */
+     //  get user profile
     public function userProfile(Request $request)
     {
         return response()->json([
@@ -66,9 +64,7 @@ class AuthController extends Controller
         ]);
     }
 
-    /**
-     * تسجيل الخروج
-     */
+     // user logout
     public function logout(Request $request)
     {
         $request->user()->currentAccessToken()->delete();
